@@ -76,7 +76,7 @@ public:
 
 int main()
 {
-    KnightsTour k(8);
+    KnightsTour k(16);
 
     k.solveKT();
     return 0;
