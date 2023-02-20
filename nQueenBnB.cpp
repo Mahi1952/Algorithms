@@ -41,44 +41,50 @@ public:
                 printf("%d ", board[i][j]);
             cout << endl;
         }
-        cout<<"---------------------"<<endl;;
+        cout << "---------------------" << endl;
+        ;
     }
 
-    void solveUtil(int row=0)
+    void solveUtil(int row = 0)
     {
-        if(row==n){
+        if (row == n)
+        {
             print();
             return;
         }
-        for(int col=0;col<n;col++){
-            if(!cols[col] and !slashCode[row+col] and !backslashCode[row-col+n-1])
+        for (int col = 0; col < n; col++)
+        {
+            if (!cols[col] and !slashCode[row + col] and !backslashCode[row - col + n - 1])
             {
-                board[row][col]=true;
+                board[row][col] = true;
 
-                cols[col]=true;
-                slashCode[row+col]=true;
-                backslashCode[row-col+n-1]=true;
+                cols[col] = true;
+                slashCode[row + col] = true;
+                backslashCode[row - col + n - 1] = true;
 
-                solveUtil(row+1);
-                if(row==n-1)
-                break;
+                solveUtil(row + 1);
+                // if(row==n-1)
+                // break;
 
-                board[row][col]=false;
+                board[row][col] = false;
 
-                cols[col]=false;
-                slashCode[row+col]=false;
-                backslashCode[row-col+n-1]=false;
+                cols[col] = false;
+                slashCode[row + col] = false;
+                backslashCode[row - col + n - 1] = false;
             }
         }
     }
-    void place(){
+    void place()
+    {
         solveUtil();
     }
 };
 
-int main(){
+int main()
+{
+    int n=(cin>>(cout<<"Enter board size  : ",n),n);
 
-    Queen nQueen(5);
+    Queen nQueen(n);
     nQueen.place();
 
     return 0;
