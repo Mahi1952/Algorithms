@@ -33,17 +33,27 @@ public:
         }
     }
 
-    void print()
+   void print()
+{
+    cout << "Solution:" << endl;
+    for (int i = 0; i < n; i++)
     {
-        for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
         {
-            for (int j = 0; j < n; j++)
-                printf("%d ", board[i][j]);
-            cout << endl;
+            if (board[i][j])
+            {
+                cout << "Q ";
+            }
+            else
+            {
+                cout << ". ";
+            }
         }
-        cout << "---------------------" << endl;
-        ;
+        cout << endl;
     }
+    cout << "---------------------" << endl;
+}
+
 
     void solveUtil(int row = 0)
     {
